@@ -22,6 +22,10 @@
   ];
 
   boot = {
+    loader = {
+      systemd-boot.configurationLimit = 10;
+      #grub.configurationLimit = 10;
+    };
     supportedFilesystems = [ "ntfs" "exfat" ];
     kernelPackages = pkgs.linuxPackages_zen;
   };
