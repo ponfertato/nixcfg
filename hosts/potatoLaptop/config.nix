@@ -19,6 +19,7 @@
     # discord
     # teams
     audacity
+    ardour
     heroic
     lmms
     prismlauncher
