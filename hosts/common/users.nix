@@ -2,7 +2,7 @@
   users.users.ponfertato = {
     isNormalUser = true;
     description = "ponfertato";
-    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" "flatpak" "sshd" "cups" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" "flatpak" "sshd" "cups" "audio" "gamemode" ];
     packages = with pkgs; [
       android-tools
       corefonts
