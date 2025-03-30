@@ -27,10 +27,10 @@
   programs = {
     firefox.enable = true;
     kdeconnect.enable = true;
-    obs-studio {
+    obs-studio = {
       enable = true;
       enableVirtualCamera = true;
-      };
+    };
   };
   nixpkgs.config.allowUnfree = true;
 }
