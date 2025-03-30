@@ -21,6 +21,7 @@
       telegram-desktop
       thunderbird
       vscodium
+      vlc
     ];
   };
   programs = {
