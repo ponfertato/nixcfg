@@ -16239,5 +16239,6 @@
       "sponsor.ajay.app"
       "returnyoutubedislikeapi.com"
     ];
+    params = [];
   };
 }
