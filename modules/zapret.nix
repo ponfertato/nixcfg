@@ -16239,6 +16239,13 @@
       "sponsor.ajay.app"
       "returnyoutubedislikeapi.com"
     ];
-    params = [];
+    params = [
+      "--dpi-desync=fake"
+      "--dpi-desync-ttl=7"  # For ipv4
+      "--dpi-desync-ttl6=8" # For ipv6
+      "--split-tls=sni"
+      "--oob"
+      "--mss=88"
+    ];
   };
 }
