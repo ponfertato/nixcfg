@@ -16238,6 +16238,9 @@
       "dearrow.ajay.app"
       "sponsor.ajay.app"
       "returnyoutubedislikeapi.com"
+      "dearrow.ajay.app"
+      "sponsor.ajay.app"
+      "returnyoutubedislikeapi.com"
     ];
     params = [
       "--dpi-desync=fake"
