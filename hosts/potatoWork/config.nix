@@ -8,6 +8,5 @@
   users.users.ponfertato.packages = with pkgs; [
     anydesk
     rustdesk
-    skypeforlinux
   ];
 }
