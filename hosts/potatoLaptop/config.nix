@@ -24,7 +24,6 @@
     lmms
     prismlauncher
     protonup-qt
-    skypeforlinux
   ];
 
   programs = {
