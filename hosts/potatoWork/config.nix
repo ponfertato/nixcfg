@@ -1,4 +1,6 @@
 { config, pkgs, ... }: {
+  boot.kernelParams = [ "video=VGA-1:1600x900@60" ];
+  
   networking.hostName = "potatoWork";
 
   hardware.cpu.amd.updateMicrocode = true;
