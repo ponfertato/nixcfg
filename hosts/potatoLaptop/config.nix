@@ -24,6 +24,10 @@
     lmms
     prismlauncher
     protonup-qt
+    x42-plugins
+    x42-gmsynth
+    x42-avldrums
+    distrho-ports
   ];
 
   programs = {
