@@ -3,7 +3,7 @@
   
   networking.hostName = "potatoWork";
 
-  hardware.cpu.amd.updateMicrocode = true;
+  hardware.cpu.intel.updateMicrocode = true;
 
   services.displayManager.autoLogin.enable = false;
 
