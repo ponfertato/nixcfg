@@ -1,7 +1,12 @@
 { config, pkgs, ... }: {
   boot.kernelParams = [ "video=VGA-1:1600x900@60" ];
-  
-  networking.hostName = "potatoWork";
+
+  networking = {
+    hostName = "potatoWork";
+    interfaces.enp1s0 = {
+      wakeOnLan.enable = true;
+    };
+  };
 
   hardware.cpu.intel.updateMicrocode = true;
 
@@ -9,6 +14,6 @@
 
   users.users.ponfertato.packages = with pkgs; [
     anydesk
-    rustdesk
+    v2rayn
   ];
 }

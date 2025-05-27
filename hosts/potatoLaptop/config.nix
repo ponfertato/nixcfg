@@ -16,18 +16,17 @@
   };
 
   users.users.ponfertato.packages = with pkgs; [
-    # discord
-    # teams
-    audacity
     ardour
+    audacity
+    distrho-ports
     heroic
     lmms
     prismlauncher
     protonup-qt
-    x42-plugins
-    x42-gmsynth
+    v2rayn
     x42-avldrums
-    distrho-ports
+    x42-gmsynth
+    x42-plugins
   ];
 
   programs = {

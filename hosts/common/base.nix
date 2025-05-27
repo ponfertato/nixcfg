@@ -19,22 +19,16 @@
 
   security.rtkit.enable = true;
 
-  system.stateVersion = "24.11";
-  system.autoUpgrade = {
-    enable = true;
-    allowReboot = false;
-    dates = "72h";
-  };
-
   nix = {
     settings = {
       auto-optimise-store = true;
+      builders-use-substitutes = true;
       experimental-features = [ "nix-command" "flakes" ];
     };
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 1w";
+      options = "--delete-older-than 3d";
     };
   };
 }
