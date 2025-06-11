@@ -15,5 +15,7 @@
   users.users.ponfertato.packages = with pkgs; [
     anydesk
     v2rayn
+    byedpi
+    mattermost-desktop
   ];
 }
