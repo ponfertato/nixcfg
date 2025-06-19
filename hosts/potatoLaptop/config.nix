@@ -1,4 +1,11 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }:
+let
+  # Динамическое определение системы
+  pkgsUnstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
+in {
 
   boot.kernelParams = [ "amd_iommu=off" ];
 
@@ -18,9 +25,11 @@
   users.users.ponfertato.packages = with pkgs; [
     ardour
     audacity
+    byedpi
     distrho-ports
     heroic
     lmms
+    pkgsUnstable.v2rayn
     prismlauncher
     protonup-qt
     v2rayn
