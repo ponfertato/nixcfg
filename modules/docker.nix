@@ -1,3 +1,1 @@
-{ config, pkgs, ... }: {
-  virtualisation.docker.enable = true;
-}
+{ config, pkgs, ... }: { virtualisation.docker.enable = true; }
