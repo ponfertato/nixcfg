@@ -11,6 +11,7 @@
       git
       joplin-desktop
       kdePackages.kate
+      kdePackages.tokodon
       keepassxc
       krita
       libreoffice
