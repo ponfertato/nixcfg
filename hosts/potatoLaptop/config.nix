@@ -25,7 +25,6 @@ in {
   users.users.ponfertato.packages = with pkgs; [
     ardour
     audacity
-    byedpi
     distrho-ports
     heroic
     lmms
