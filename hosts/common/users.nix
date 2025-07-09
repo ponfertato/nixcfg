@@ -2,7 +2,22 @@
   users.users.ponfertato = {
     isNormalUser = true;
     description = "ponfertato";
-    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" "flatpak" "sshd" "cups" "audio" "gamemode" ];
+    extraGroups = [
+      "adbusers"
+      "audio"
+      "cups"
+      "docker"
+      "flatpak"
+      "gamemode"
+      "input"
+      "libvirt"
+      "networkmanager"
+      "plugdev"
+      "scanner"
+      "sshd"
+      "video"
+      "wheel"
+    ];
     packages = with pkgs; [
       android-tools
       corefonts
@@ -21,8 +36,8 @@
       remmina
       telegram-desktop
       thunderbird
-      vscodium
       vlc
+      vscodium
     ];
   };
   programs = {
