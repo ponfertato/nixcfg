@@ -1,6 +1,5 @@
 { config, pkgs, inputs, ... }:
 let
-  # Динамическое определение системы
   pkgsUnstable = import inputs.nixpkgs-unstable {
     system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
@@ -23,18 +22,11 @@ in {
   };
 
   users.users.ponfertato.packages = with pkgs; [
-    ardour
     audacity
-    distrho-ports
     heroic
-    lmms
     pkgsUnstable.v2rayn
     prismlauncher
     protonup-qt
-    v2rayn
-    x42-avldrums
-    x42-gmsynth
-    x42-plugins
   ];
 
   programs = {
