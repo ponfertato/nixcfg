@@ -1,6 +1,5 @@
 { config, pkgs, inputs, ... }:
 let
-  # Динамическое определение системы
   pkgsUnstable = import inputs.nixpkgs-unstable {
     system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
