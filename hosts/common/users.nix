@@ -30,6 +30,7 @@
       keepassxc
       krita
       lazydocker
+      lazygit
       libreoffice
       nextcloud-client
       nextcloud-talk-desktop
