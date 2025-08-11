@@ -29,6 +29,7 @@
       kdePackages.tokodon
       keepassxc
       krita
+      lazydocker
       libreoffice
       nextcloud-client
       nextcloud-talk-desktop
