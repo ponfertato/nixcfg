@@ -43,7 +43,13 @@
     ];
   };
   programs = {
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      languagePacks = [
+        "en-US"
+        "ru"
+      ];
+    };
     kdeconnect.enable = true;
     obs-studio = {
       enable = true;
