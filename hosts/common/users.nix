@@ -45,7 +45,6 @@
   programs = {
     firefox = {
       enable = true;
-      preferences
       languagePacks = [
         "en-US"
         "ru"
