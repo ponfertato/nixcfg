@@ -19,6 +19,5 @@ in {
   users.users.ponfertato.packages = with pkgs; [
     anydesk
     mattermost-desktop
-    pkgsUnstable.v2rayn
   ];
 }
