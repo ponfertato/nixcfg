@@ -24,7 +24,6 @@ in {
   users.users.ponfertato.packages = with pkgs; [
     audacity
     heroic
-    pkgsUnstable.v2rayn
     prismlauncher
     protonup-qt
   ];
