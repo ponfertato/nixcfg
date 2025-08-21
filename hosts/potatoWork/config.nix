@@ -17,6 +17,7 @@ in {
   services.displayManager.autoLogin.enable = false;
 
   users.users.ponfertato.packages = with pkgs; [
+    amnezia-vpn
     anydesk
     mattermost-desktop
   ];
