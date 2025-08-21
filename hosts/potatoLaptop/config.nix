@@ -22,6 +22,7 @@ in {
   };
 
   users.users.ponfertato.packages = with pkgs; [
+    amnezia-vpn
     audacity
     heroic
     prismlauncher
