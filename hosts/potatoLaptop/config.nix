@@ -22,9 +22,9 @@ in {
   };
 
   users.users.ponfertato.packages = with pkgs; [
-    amnezia-vpn
     audacity
     heroic
+    pkgsUnstable.amnezia-vpn
     prismlauncher
     protonup-qt
   ];
