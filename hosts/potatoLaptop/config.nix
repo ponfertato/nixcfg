@@ -25,6 +25,7 @@ in {
     audacity
     heroic
     pkgsUnstable.amnezia-vpn
+    pkgsUnstable.byedpi
     prismlauncher
     protonup-qt
   ];
