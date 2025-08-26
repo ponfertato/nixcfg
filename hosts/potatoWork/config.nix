@@ -20,5 +20,6 @@ in {
     anydesk
     mattermost-desktop
     pkgsUnstable.amnezia-vpn
+    pkgsUnstable.byedpi
   ];
 }
