@@ -1,3 +1,4 @@
+{ config, pkgs, ... }:
 {
   boot.kernel.sysctl = {
     "net.core.default_qdisc" = "fq";
