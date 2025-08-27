@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   users.users.ponfertato = {
     isNormalUser = true;
     description = "ponfertato";

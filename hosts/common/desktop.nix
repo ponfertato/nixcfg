@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   services = {
     xserver = {
       enable = true;
@@ -83,7 +84,10 @@
       systemd-boot.configurationLimit = 10;
       #grub.configurationLimit = 10;
     };
-    supportedFilesystems = [ "ntfs" "exfat" ];
+    supportedFilesystems = [
+      "ntfs"
+      "exfat"
+    ];
     kernelPackages = pkgs.linuxPackages_zen;
   };
 }
