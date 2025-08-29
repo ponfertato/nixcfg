@@ -22,6 +22,7 @@
     packages = with pkgs; [
       android-tools
       corefonts
+      discord
       docker
       gimp
       git
