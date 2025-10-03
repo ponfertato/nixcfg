@@ -65,7 +65,10 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      openFirewall = true;
+    };
     avahi = {
       enable = true;
       nssmdns4 = true;
