@@ -38,4 +38,15 @@
     "kernel.core_uses_pid" = 1;
     "fs.suid_dumpable" = 0;
   };
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      21
+      25565
+      27015
+      443
+      6567
+      80
+    ];
+  };
 }
