@@ -18,7 +18,10 @@
 
   networking.networkmanager.enable = true;
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+  };
 
   nix = {
     settings = {
