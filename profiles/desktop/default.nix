@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+
 {
   services = {
     xserver = {
@@ -57,7 +58,6 @@
       };
     };
     displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
     printing.enable = true;
     pipewire = {
       enable = true;
@@ -74,13 +74,6 @@
       nssmdns4 = true;
       openFirewall = true;
     };
-    ollama = {
-      enable = true;
-      openFirewall = true;
-      loadModels = [
-        "phi3:mini"
-      ];
-    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -90,14 +83,9 @@
   ];
 
   boot = {
-    loader = {
-      systemd-boot.configurationLimit = 10;
-      #grub.configurationLimit = 10;
-    };
     supportedFilesystems = [
       "ntfs"
       "exfat"
     ];
-    kernelPackages = pkgs.linuxPackages_zen;
   };
 }

@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+
 {
   users.users.ponfertato = {
     isNormalUser = true;
@@ -22,7 +23,6 @@
     packages = with pkgs; [
       android-tools
       corefonts
-      docker
       gimp
       git
       joplin-desktop
