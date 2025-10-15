@@ -1,22 +1,10 @@
+{ config, pkgs, ... }:
+
 {
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
-let
-  pkgsUnstable = import inputs.nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
-    config.allowUnfree = true;
-  };
-in
-{
+  networking.hostName = "potatoLaptop";
 
   boot.kernelParams = [ "amd_iommu=off" ];
 
-  networking.hostName = "potatoLaptop";
-
-  hardware.bluetooth.enable = true;
   hardware.cpu.amd.updateMicrocode = true;
 
   services = {
@@ -24,7 +12,6 @@ in
       enable = true;
       user = "ponfertato";
     };
-    fprintd.enable = true;
   };
 
   users.users.ponfertato.packages = with pkgs; [
@@ -36,8 +23,8 @@ in
 
   programs = {
     steam = {
-      gamescopeSession.enable = true;
       enable = true;
+      gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };

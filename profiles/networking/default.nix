@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+
 {
   boot.kernel.sysctl = {
     "net.core.default_qdisc" = "fq";
@@ -34,6 +35,7 @@
     "net.ipv6.conf.all.accept_source_route" = 0;
     "net.ipv6.conf.default.accept_redirects" = 0;
     "net.ipv6.conf.default.accept_source_route" = 0;
+    "net.ipv4.tcp_low_latency" = 1;
     "kernel.sysrq" = 0;
     "kernel.core_uses_pid" = 1;
     "fs.suid_dumpable" = 0;
@@ -41,16 +43,16 @@
 
   networking.firewall = {
     allowedTCPPorts = [
-      21
-      25565
-      27015
-      443
-      6567
-      80
+      21 # FTP
+      25565 # Minecraft
+      27015 # Steam (Source games)
+      443 # HTTPS
+      6567 # Mindustry
+      80 # HTTP
     ];
     allowedUDPPorts = [
-      27015
-      6567
+      27015 # Steam (Source games)
+      6567 # Mindustry
     ];
   };
 }

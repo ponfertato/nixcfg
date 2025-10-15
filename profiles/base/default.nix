@@ -1,6 +1,13 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+
 {
   time.timeZone = "Europe/Moscow";
+
   i18n = {
     defaultLocale = "ru_RU.UTF-8";
     extraLocaleSettings = {
@@ -23,6 +30,8 @@
     polkit.enable = true;
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -31,11 +40,25 @@
         "nix-command"
         "flakes"
       ];
+      substituters = [
+        "https://cache.nixos.org/"
+        "https://cache.garnix.io"
+        "https://nixos.snix.store"
+        "https://nixos-cache-proxy.cofob.dev"
+      ];
+      trusted-public-keys = [
+        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      ];
     };
     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 3d";
     };
+  };
+
+  boot.loader = {
+    systemd-boot.configurationLimit = 5;
+    # grub.configurationLimit = 5;
   };
 }
