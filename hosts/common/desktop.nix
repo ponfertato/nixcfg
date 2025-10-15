@@ -74,6 +74,13 @@
       nssmdns4 = true;
       openFirewall = true;
     };
+    ollama = {
+      enable = true;
+      openFirewall = true;
+      loadModels = [
+        "phi3:mini"
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
