@@ -1,4 +1,16 @@
-{ config, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+
+let
+  pkgsUnstable = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
 
 {
   networking.hostName = "potatoLaptop";
@@ -16,9 +28,9 @@
 
   users.users.ponfertato.packages = with pkgs; [
     audacity
-    heroic
-    prismlauncher
-    protonup-qt
+    pkgsUnstable.heroic
+    pkgsUnstable.prismlauncher
+    pkgsUnstable.protonup-qt
   ];
 
   programs = {
