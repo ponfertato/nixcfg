@@ -1,4 +1,16 @@
-{ config, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+
+let
+  pkgsUnstable = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
 
 {
   networking.hostName = "potatoWork";
@@ -9,6 +21,6 @@
 
   users.users.ponfertato.packages = with pkgs; [
     anydesk
-    mattermost-desktop
+    pkgsUnstable.mattermost-desktop
   ];
 }

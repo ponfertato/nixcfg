@@ -1,4 +1,16 @@
-{ config, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+
+let
+  pkgsUnstable = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
 
 {
   users.users.ponfertato = {
@@ -25,22 +37,22 @@
       corefonts
       gimp
       git
-      joplin-desktop
       kdePackages.kate
       kdePackages.tokodon
-      keepassxc
       krita
-      lazydocker
-      lazygit
       libreoffice
-      nextcloud-client
-      nextcloud-talk-desktop
+      pkgsUnstable.joplin-desktop
+      pkgsUnstable.keepassxc
+      pkgsUnstable.lazydocker
+      pkgsUnstable.lazygit
+      pkgsUnstable.nextcloud-client
+      pkgsUnstable.nextcloud-talk-desktop
+      pkgsUnstable.telegram-desktop
+      pkgsUnstable.vscodium
       qbittorrent
       remmina
-      telegram-desktop
       thunderbird
       vlc
-      vscodium
     ];
   };
   programs = {
