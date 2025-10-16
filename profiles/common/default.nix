@@ -69,12 +69,14 @@
         "browser.formfill.enable" = false;
         "browser.helperApps.deleteTempFileOnExit" = true;
         "browser.menu.showViewImageInfo" = true;
+        "browser.ml.chat.provider" = "https://chat.potatoenergy.ru";
         "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
         "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
         "browser.newtabpage.activity-stream.default.sites" = "";
         "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
         "browser.newtabpage.activity-stream.feeds.telemetry" = false;
         "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.activity-stream.showSponsoredCheckboxes" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.newtabpage.activity-stream.telemetry" = false;
         "browser.places.speculativeConnect.enabled" = false;
@@ -155,8 +157,11 @@
         "permissions.manager.defaultsUrl" = "";
         "privacy.globalprivacycontrol.enabled" = true;
         "privacy.history.custom" = true;
+        "privacy.trackingprotection.allow_list.baseline.enabled" = true;
+        "privacy.trackingprotection.allow_list.convenience.enabled" = true;
         "privacy.userContext.ui.enabled" = true;
         "security.OCSP.enabled" = 0;
+        "security.csp.reporting.enabled" = false;
         "security.mixed_content.block_display_content" = true;
         "security.pki.crlite_mode" = 2;
         "security.ssl.treat_unsafe_negotiation_as_broken" = true;
