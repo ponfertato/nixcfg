@@ -7,7 +7,6 @@
 }:
 {
   home.homeDirectory = "/home/ponfertato";
-  home.sessionVariables.NIXCFG_PATH = "$HOME/Документы/Git/nixcfg";
   home.stateVersion = "25.05";
   home.username = "ponfertato";
   programs.bash.enable = true;
@@ -176,17 +175,19 @@
     };
   };
   home.shellAliases = {
-    nixos-update = ''
-      cd "$NIXCFG_PATH" && git pull && nix flake update && sudo nixos-rebuild switch --flake .#$(hostname)
+    nix-update-inputs = "nix flake update --flake path:.";
+    nix-apply-system = ''
+      sudo nixos-generate-config && sudo nixos-rebuild switch --flake "path:.#$(hostname)" --impure
     '';
-    nix-home = ''
-      home-manager switch --flake "$NIXCFG_PATH"
-    '';
-    nix-edit = ''
-      cd "$NIXCFG_PATH" && ${pkgs.git}/bin/git status
+    nix-apply-user = ''
+      nix --extra-experimental-features 'nix-command flakes' \
+         run "path:.#homeConfigurations.ponfertato@$(hostname).activationPackage"
     '';
     nix-gc = "nix-collect-garbage --delete-older-than 3d && nix store optimise";
     nix-search = "nix search nixpkgs";
     nix-search-unstable = "nix search nixpkgs-unstable";
+    nix-edit = ''
+      cd "$NIXCFG_PATH" && ${pkgs.git}/bin/git status
+    '';
   };
 }
