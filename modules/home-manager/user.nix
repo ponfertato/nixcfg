@@ -3,7 +3,8 @@
   home.homeDirectory = "/home/ponfertato";
   home.stateVersion = "25.05";
 
-  home.shellAliases = {
+  programs.bash.enable = true;
+  programs.bash.shellAliases = {
     nixos-update = "cd ~/Документы/Git/nixcfg && git pull && nix flake update && sudo nixos-rebuild switch --flake .#$(hostname) --impure";
   };
 }
