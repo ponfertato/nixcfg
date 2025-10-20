@@ -1,61 +1,38 @@
 {
   config,
-  pkgs,
   inputs,
+  pkgs,
+  pkgsUnstable,
   ...
 }:
-
-let
-  pkgsUnstable = import inputs.nixpkgs-unstable {
-    system = pkgs.system;
-    config.allowUnfree = true;
-  };
-in
 {
-  home.username = "ponfertato";
   home.homeDirectory = "/home/ponfertato";
+  home.sessionVariables.NIXCFG_PATH = "$HOME/Документы/Git/nixcfg";
   home.stateVersion = "25.05";
-
+  home.username = "ponfertato";
   programs.bash.enable = true;
-  # programs.zsh.enable = true;
-
-  home.sessionVariables.NIXCFG_PATH = "~/Документы/Git/nixcfg";
-
-  home.packages =
-    with pkgs;
-    [
-      android-tools
-      corefonts
-      gimp
-      git
-      kdePackages.kate
-      kdePackages.tokodon
-      krita
-      libreoffice
-      pkgsUnstable.joplin-desktop
-      pkgsUnstable.keepassxc
-      pkgsUnstable.lazydocker
-      pkgsUnstable.lazygit
-      pkgsUnstable.nextcloud-client
-      pkgsUnstable.nextcloud-talk-desktop
-      pkgsUnstable.telegram-desktop
-      pkgsUnstable.vscodium
-      qbittorrent
-      remmina
-      thunderbird
-      vlc
-    ]
-    ++ (pkgs.lib.optionals (config.home.hostname == "potatoWork") [
-      anydesk
-      pkgsUnstable.mattermost-desktop
-    ])
-    ++ (pkgs.lib.optionals (config.home.hostname == "potatoLaptop") [
-      audacity
-      pkgsUnstable.heroic
-      pkgsUnstable.prismlauncher
-      pkgsUnstable.protonup-qt
-    ]);
-
+  home.packages = with pkgs; [
+    android-tools
+    corefonts
+    gimp
+    git
+    kdePackages.kate
+    kdePackages.tokodon
+    krita
+    libreoffice
+    pkgsUnstable.joplin-desktop
+    pkgsUnstable.keepassxc
+    pkgsUnstable.lazydocker
+    pkgsUnstable.lazygit
+    pkgsUnstable.nextcloud-client
+    pkgsUnstable.nextcloud-talk-desktop
+    pkgsUnstable.telegram-desktop
+    pkgsUnstable.vscodium
+    qbittorrent
+    remmina
+    thunderbird
+    vlc
+  ];
   programs.firefox = {
     enable = true;
     languagePacks = [
@@ -198,29 +175,9 @@ in
       };
     };
   };
-
-  programs.obs-studio = {
-    enable = true;
-    enableVirtualCamera = true;
-  };
-
-  services.kdeconnect.enable = true;
-
-  programs.steam = {
-    enable = pkgs.lib.mkIf (config.home.hostname == "potatoLaptop") true;
-    gamescopeSession.enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
-  services.gamemode.enable = pkgs.lib.mkIf (config.home.hostname == "potatoLaptop") true;
-
   home.shellAliases = {
     nixos-update = ''
-      cd "$NIXCFG_PATH" && git pull && nix flake update && sudo nixos-rebuild switch --flake .#$(hostname) --impure
-    '';
-    nix-update = ''
-      cd "$NIXCFG_PATH" && nix flake update && sudo nixos-rebuild switch --flake .#$(hostname)
+      cd "$NIXCFG_PATH" && git pull && nix flake update && sudo nixos-rebuild switch --flake .#$(hostname)
     '';
     nix-home = ''
       home-manager switch --flake "$NIXCFG_PATH"
@@ -228,7 +185,7 @@ in
     nix-edit = ''
       cd "$NIXCFG_PATH" && ${pkgs.git}/bin/git status
     '';
-    nix-gc = "nix-collect-garbage --delete-older-than 3d";
+    nix-gc = "nix-collect-garbage --delete-older-than 3d && nix store optimise";
     nix-search = "nix search nixpkgs";
     nix-search-unstable = "nix search nixpkgs-unstable";
   };

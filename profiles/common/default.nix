@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 {
   users.users.ponfertato = {
     isNormalUser = true;
@@ -26,5 +25,11 @@
       "wheel"
     ];
   };
-  nixpkgs.config.allowUnfree = true;
+  programs = {
+    kdeconnect.enable = true;
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+    };
+  };
 }

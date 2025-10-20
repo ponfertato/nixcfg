@@ -4,7 +4,6 @@
   lib,
   ...
 }:
-
 {
   time.timeZone = "Europe/Moscow";
 
