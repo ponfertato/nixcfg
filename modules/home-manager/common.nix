@@ -18,7 +18,6 @@
     kdePackages.tokodon
     krita
     libreoffice
-    pkgsUnstable.joplin-desktop
     pkgsUnstable.keepassxc
     pkgsUnstable.nextcloud-client
     pkgsUnstable.nextcloud-talk-desktop
@@ -307,6 +306,15 @@
   programs.lazygit = {
     enable = true;
     package = pkgsUnstable.lazygit;
+  };
+  programs.joplin-desktop = {
+    enable = true;
+    package = pkgsUnstable.joplin-desktop;
+    general.editor = "kate";
+    sync = {
+      target = "nextcloud";
+      interval = "10m";
+    };
   };
   home.shellAliases = {
     nix-update-inputs = "nix flake update --flake path:.";
