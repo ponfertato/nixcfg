@@ -26,7 +26,6 @@
     pkgsUnstable.vscodium
     qbittorrent
     remmina
-    thunderbird
     vlc
   ];
   programs.git = {
@@ -259,6 +258,47 @@
     #     "wikipedia".metaData.hidden = true;
     #   };
     # };
+  };
+  programs.thunderbird = {
+    enable = true;
+    package = pkgs.thunderbird;
+    profiles.default = {
+      isDefault = true;
+      # settings = {
+      # };
+      # search = {
+      #   enable = true;
+      #   force = true;
+      #   default = "ddg";
+      #   order = [
+      #     "ddg"
+      #     "perplexity"
+      #     "nix-packages"
+      #     "nix-options"
+      #   ];
+      #   privateDefault = "ddg";
+      #   engines = {
+      #     "perplexity" = {
+      #       name = "Perplexity";
+      #       urls = [
+      #         {
+      #           template = "https://www.perplexity.ai/";
+      #           params = [
+      #             {
+      #               name = "q";
+      #               value = "{searchTerms}";
+      #             }
+      #           ];
+      #         }
+      #       ];
+      #       icon = "https://www.perplexity.ai/favicon.ico";
+      #       definedAliases = [ "@pp" ];
+      #     };
+      #     "google".metaData.hidden = true;
+      #     "wikipedia".metaData.hidden = true;
+      #   };
+      # };
+    };
   };
   programs.lazydocker = {
     enable = true;
