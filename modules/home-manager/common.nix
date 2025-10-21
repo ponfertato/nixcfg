@@ -10,23 +10,6 @@
   home.stateVersion = "25.05";
   home.username = "ponfertato";
   programs.bash.enable = true;
-  home.packages = with pkgs; [
-    android-tools
-    corefonts
-    gimp
-    kdePackages.kate
-    kdePackages.tokodon
-    krita
-    libreoffice
-    pkgsUnstable.keepassxc
-    pkgsUnstable.nextcloud-client
-    pkgsUnstable.nextcloud-talk-desktop
-    pkgsUnstable.telegram-desktop
-    pkgsUnstable.vscodium
-    qbittorrent
-    remmina
-    vlc
-  ];
   programs.git = {
     enable = true;
     package = pkgs.git;
@@ -258,6 +241,23 @@
     #   };
     # };
   };
+  programs.joplin-desktop = {
+    enable = true;
+    package = pkgsUnstable.joplin-desktop;
+    general.editor = "kate";
+    sync = {
+      target = "nextcloud";
+      interval = "10m";
+    };
+  };
+  programs.lazydocker = {
+    enable = true;
+    package = pkgsUnstable.lazydocker;
+  };
+  programs.lazygit = {
+    enable = true;
+    package = pkgsUnstable.lazygit;
+  };
   programs.thunderbird = {
     enable = true;
     package = pkgs.thunderbird;
@@ -297,23 +297,6 @@
       #     "wikipedia".metaData.hidden = true;
       #   };
       # };
-    };
-  };
-  programs.lazydocker = {
-    enable = true;
-    package = pkgsUnstable.lazydocker;
-  };
-  programs.lazygit = {
-    enable = true;
-    package = pkgsUnstable.lazygit;
-  };
-  programs.joplin-desktop = {
-    enable = true;
-    package = pkgsUnstable.joplin-desktop;
-    general.editor = "kate";
-    sync = {
-      target = "nextcloud";
-      interval = "10m";
     };
   };
   home.shellAliases = {
