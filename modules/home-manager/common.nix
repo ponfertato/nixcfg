@@ -14,7 +14,6 @@
     android-tools
     corefonts
     gimp
-    git
     kdePackages.kate
     kdePackages.tokodon
     krita
@@ -32,6 +31,34 @@
     thunderbird
     vlc
   ];
+  programs.git = {
+    enable = true;
+    package = pkgs.git;
+    userEmail = "ponfertato@ya.ru";
+    userName = "ponfertato";
+    alias = {
+      st = "status";
+      co = "checkout";
+      br = "branch";
+      cm = "commit -m";
+      amend = "commit --amend";
+      lg = "log --oneline --graph --decorate --all";
+      diff = "diff --word-diff";
+      diffc = "diff --cached";
+      up = "!git fetch && git rebase origin/$(git branch --show-current)";
+    };
+    ignores = [
+      "*~"
+      ".DS_Store"
+      ".git-credentials"
+      ".idea/"
+      ".vscode/"
+      "node_modules/"
+    ];
+    lfs = {
+      enable = true;
+    };
+  };
   programs.firefox = {
     enable = true;
     languagePacks = [
