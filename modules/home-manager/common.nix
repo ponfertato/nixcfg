@@ -20,8 +20,6 @@
     libreoffice
     pkgsUnstable.joplin-desktop
     pkgsUnstable.keepassxc
-    pkgsUnstable.lazydocker
-    pkgsUnstable.lazygit
     pkgsUnstable.nextcloud-client
     pkgsUnstable.nextcloud-talk-desktop
     pkgsUnstable.telegram-desktop
@@ -261,6 +259,14 @@
     #     "wikipedia".metaData.hidden = true;
     #   };
     # };
+  };
+  programs.lazydocker = {
+    enable = true;
+    package = pkgsUnstable.lazydocker;
+  };
+  programs.lazygit = {
+    enable = true;
+    package = pkgsUnstable.lazygit;
   };
   home.shellAliases = {
     nix-update-inputs = "nix flake update --flake path:.";
