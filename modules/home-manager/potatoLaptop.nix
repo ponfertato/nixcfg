@@ -1,7 +1,7 @@
 { pkgs, pkgsUnstable, ... }:
 {
   imports = [
-    ../packages.nix
+    ./packages.nix
   ];
   home.packages = with pkgs; [
     audacity
