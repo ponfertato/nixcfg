@@ -14,7 +14,6 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
   };
-
   outputs =
     {
       hardware,
@@ -37,6 +36,7 @@
         potatoLaptop = [ ./profiles/laptop ];
         potatoWork = [ ./profiles/workstation ];
       };
+
       mkNixosConfig =
         {
           hostName,
@@ -92,7 +92,6 @@
           cpuModule = hardware.nixosModules.common-cpu-amd;
         };
       };
-
       homeConfigurations = {
         "ponfertato@potatoWork" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
@@ -123,7 +122,6 @@
           ];
         };
       };
-
       nixOnDroidConfigurations = {
         potatoPhone = mkNixOnDroidConfig "potatoPhone" [ ];
         potatoTablet = mkNixOnDroidConfig "potatoTablet" [ ];
