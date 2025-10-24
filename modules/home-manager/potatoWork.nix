@@ -6,6 +6,6 @@
   home.packages = with pkgs; [
     anydesk
     pkgsUnstable.mattermost-desktop
-    pkgsUnstable.rustdesk
+    pkgsUnstable.rustdesk-flutter
   ];
 }
