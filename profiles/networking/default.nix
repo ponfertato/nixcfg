@@ -45,12 +45,14 @@
       21 # FTP
       25565 # Minecraft
       27015 # Steam (Source games)
+      3389 # RDP
       443 # HTTPS
       6567 # Mindustry
       80 # HTTP
     ];
     allowedUDPPorts = [
       27015 # Steam (Source games)
+      3389 # RDP
       6567 # Mindustry
     ];
   };
