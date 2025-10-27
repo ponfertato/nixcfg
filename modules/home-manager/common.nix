@@ -302,7 +302,7 @@
   home.shellAliases = {
     nix-update-inputs = "nix flake update --flake path:.";
     nix-apply-system = ''
-      sudo nixos-generate-config && sudo nixos-rebuild switch --flake "path:.#$(hostname)" --impure
+      sudo nixos-rebuild switch --flake "path:.#$(hostname)" --impure
     '';
     nix-apply-user = ''
       nix --extra-experimental-features 'nix-command flakes' \
