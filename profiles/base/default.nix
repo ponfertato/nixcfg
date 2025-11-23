@@ -35,21 +35,29 @@
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;
+      checkConfig = true;
+      connect-timeout = 5;
+      fallback = true;
+      max-connections = 16;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
       substituters = [
+        "https://cache.garnix.io"
         "https://cache.nixos.org"
+        "https://nixos.snix.store"
+        "https://nixos-cache-proxy.cofob.dev"
       ];
       trusted-public-keys = [
+        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       ];
     };
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 3d";
+      options = "--delete-older-than 7d";
     };
   };
 
