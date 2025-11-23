@@ -32,13 +32,15 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   nix = {
+    checkConfig = true;
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;
-      checkConfig = true;
       connect-timeout = 5;
+      download-attempts = 3;
       fallback = true;
-      max-connections = 16;
+      http-connections = 16;
+      stalled-download-timeout = 30;
       experimental-features = [
         "nix-command"
         "flakes"
