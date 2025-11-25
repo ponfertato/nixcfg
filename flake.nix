@@ -63,7 +63,6 @@
             (./hosts + "/${hostName}/default.nix")
             ./modules/docker.nix
             ./modules/flatpak.nix
-            ./modules/ollama.nix
             /etc/nixos/configuration.nix
             /etc/nixos/hardware-configuration.nix
             cpuModule
