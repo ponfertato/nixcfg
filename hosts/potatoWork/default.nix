@@ -8,7 +8,6 @@
   networking.hostName = "potatoWork";
 
   boot.kernelParams = [
-    "acpi=strict"
     "i915.enable_fbc=1"
     "i915.enable_guc=2"
     "i915.enable_psr=2"
@@ -16,8 +15,6 @@
     "intel_idle.max_cstate=4"
     "intel_pstate=active"
     "loglevel=3"
-    "pci=noacpi"
-    "processor.max_cstate=4"
     "quiet"
     "splash"
     "video=VGA-1:1600x900@60"
