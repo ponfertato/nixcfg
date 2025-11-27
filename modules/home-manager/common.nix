@@ -12,9 +12,6 @@
   programs.bash.enable = true;
   programs.git = {
     enable = true;
-    package = pkgs.git;
-    userEmail = "ponfertato@ya.ru";
-    userName = "ponfertato";
     ignores = [
       "*~"
       ".DS_Store"
@@ -25,6 +22,11 @@
     ];
     lfs = {
       enable = true;
+    };
+    package = pkgs.git;
+    settings.user = {
+      email = "ponfertato@ya.ru";
+      name = "ponfertato";
     };
   };
   programs.firefox = {
