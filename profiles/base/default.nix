@@ -48,11 +48,7 @@
       substituters = [
         "https://cache.nixos.org"
         "https://cache.garnix.io"
-        "https://cache.m7.rs"
-        "https://cache.soopy.moe"
         "https://nixos-cache-proxy.cofob.dev"
-        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-        "https://mirrors.ustc.edu.cn/nix-channels/store"
         "https://chaotic-nyx.cachix.org"
         "https://nix-community.cachix.org"
         "https://nix-gaming.cachix.org"
