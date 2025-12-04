@@ -19,6 +19,7 @@
       vlc
     ])
     ++ (with pkgsUnstable; [
+      deltachat-desktop
       keepassxc
       nextcloud-client
       nextcloud-talk-desktop
