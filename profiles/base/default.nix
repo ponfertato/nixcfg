@@ -22,7 +22,13 @@
     };
   };
 
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = [
+      pkgs.networkmanager-openconnect
+      pkgs.networkmanager-vpnc
+    ];
+  };
 
   security = {
     rtkit.enable = true;
