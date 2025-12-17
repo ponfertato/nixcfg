@@ -8,6 +8,7 @@
   home.packages =
     (with pkgs; [
       android-tools
+      audacity
       corefonts
       gimp
       kdePackages.kate
