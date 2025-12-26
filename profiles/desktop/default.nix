@@ -6,7 +6,10 @@
       enable = true;
       xkb.layout = "us,ru";
     };
-    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland = {
+      enable = true;
+      compositor = "kwin";
+    };
     printing.enable = true;
     pipewire = {
       enable = true;
