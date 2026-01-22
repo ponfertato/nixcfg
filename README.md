@@ -45,10 +45,11 @@ nixcfg/
 │   │   └── default.nix       # ⚙️ Host settings (hostname, packages)
 │   └── potatoTablet/         # 📱 Configuration for potatoTablet (Nix-on-Droid)
 │       └── default.nix       # ⚙️ Host settings (hostname, packages)
-└── modules/                  # 🧩 Reusable NixOS modules (Docker, Flatpak, Ollama)
+└── modules/                  # 🧩 Reusable NixOS modules (Docker, Waydroid, Flatpak, Ollama, Home Manager)
     ├── docker.nix            # 🐳 Docker configuration module
     ├── flatpak.nix           # 📦 Flatpak configuration module
     ├── ollama.nix            # 🤖 Ollama service configuration module
+    ├── waydroid.nix          # 🤖 Waydroid configuration module
     └── home-manager/         # 👤 Home Manager user environment
         ├── common.nix        # 🏠 Core settings (bash, git, firefox, aliases)
         ├── packages.nix      # 📦 User packages (apps, tools)
