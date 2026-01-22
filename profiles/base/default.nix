@@ -52,8 +52,7 @@
         "flakes"
       ];
       substituters = [
-        "https://cache.garnix.io/?priority=10"
-        "https://cache.nixos.org/?priority=15"
+        "https://cache.nixos.org/?priority=10"
         "https://nixos-cache-proxy.cofob.dev/?priority=20"
         "https://chaotic-nyx.cachix.org/?priority=30"
         "https://nix-community.cachix.org/?priority=40"
@@ -62,7 +61,6 @@
       ];
       
       trusted-public-keys = [
-        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
