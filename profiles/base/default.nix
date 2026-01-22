@@ -52,13 +52,13 @@
         "flakes"
       ];
       substituters = [
-        "https://cache.nixos.org"
-        "https://cache.garnix.io"
-        "https://nixos-cache-proxy.cofob.dev"
-        "https://chaotic-nyx.cachix.org"
-        "https://nix-community.cachix.org"
-        "https://nix-gaming.cachix.org"
-        "https://nixos.snix.store"
+        "https://cache.garnix.io/?priority=10"
+        "https://cache.nixos.org/?priority=15"
+        "https://nixos-cache-proxy.cofob.dev/?priority=20"
+        "https://chaotic-nyx.cachix.org/?priority=30"
+        "https://nix-community.cachix.org/?priority=40"
+        "https://nix-gaming.cachix.org/?priority=50"
+        "https://nixos.snix.store/?priority=100"
       ];
       
       trusted-public-keys = [
