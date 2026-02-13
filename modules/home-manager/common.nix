@@ -37,6 +37,92 @@
     ];
     profiles.default = {
       isDefault = true;
+      search = {
+        enable = true;
+        force = true;
+        default = "ddg";
+        order = [
+          "ddg"
+          "ya"
+          "perplexity"
+        ];
+        privateDefault = "ddg";
+        engines = {
+          "ddg" = {
+            name = "DuckDuckGo";
+            urls = [
+              {
+                template = "https://duckduckgo.com/";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                  {
+                    name = "k1";
+                    value = "-1";
+                  }
+                  {
+                    name = "kl";
+                    value = "ru-ru";
+                  }
+                ];
+              }
+            ];
+            icon = "https://duckduckgo.com/favicon.ico";
+            definedAliases = [
+              "@duckduckgo"
+              "@ddg"
+            ];
+          };
+          "ya" = {
+            name = "Yandex";
+            urls = [
+              {
+                template = "https://yandex.ru/search/";
+                params = [
+                  {
+                    name = "text";
+                    value = "{searchTerms}";
+                  }
+                  {
+                    name = "l10n";
+                    value = "ru";
+                  }
+                  {
+                    name = "lr";
+                    value = "225";
+                  }
+                ];
+              }
+            ];
+            icon = "https://yandex.ru/favicon.ico";
+            definedAliases = [
+              "@yandex"
+              "@ya"
+            ];
+          };
+          "perplexity" = {
+            name = "Perplexity";
+            urls = [
+              {
+                template = "https://www.perplexity.ai/search/new/";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "https://www.perplexity.ai/favicon.ico";
+            definedAliases = [ "@pp" ];
+          };
+          "bing".metaData.hidden = true;
+          "google".metaData.hidden = true;
+          "wikipedia-ru".metaData.hidden = true;
+        };
+      };
       settings = {
         "app.normandy.api_url" = "";
         "app.normandy.enabled" = false;
@@ -170,78 +256,6 @@
         "toolkit.telemetry.updatePing.enabled" = false;
       };
     };
-    # search = {
-    #   enable = true;
-    #   force = true;
-    #   default = "ddg";
-    #   order = [
-    #     "ddg"
-    #     "perplexity"
-    #     "nix-packages"
-    #     "nix-options"
-    #   ];
-    #   privateDefault = "ddg";
-    #   engines = {
-    #     "perplexity" = {
-    #       name = "Perplexity";
-    #       urls = [
-    #         {
-    #           template = "https://www.perplexity.ai/";
-    #           params = [
-    #             {
-    #               name = "q";
-    #               value = "{searchTerms}";
-    #             }
-    #           ];
-    #         }
-    #       ];
-    #       icon = "https://www.perplexity.ai/favicon.ico";
-    #       definedAliases = [ "@pp" ];
-    #     };
-    #     "nix-packages" = {
-    #       name = "Nix Packages";
-    #       urls = [
-    #         {
-    #           template = "https://search.nixos.org/packages";
-    #           params = [
-    #             {
-    #               name = "type";
-    #               value = "packages";
-    #             }
-    #             {
-    #               name = "query";
-    #               value = "{searchTerms}";
-    #             }
-    #           ];
-    #         }
-    #       ];
-    #       icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-    #       definedAliases = [ "@np" ];
-    #     };
-    #     "nix-options" = {
-    #       name = "Nix Options";
-    #       urls = [
-    #         {
-    #           template = "https://search.nixos.org/options";
-    #           params = [
-    #             {
-    #               name = "type";
-    #               value = "options";
-    #             }
-    #             {
-    #               name = "query";
-    #               value = "{searchTerms}";
-    #             }
-    #           ];
-    #         }
-    #       ];
-    #       icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-    #       definedAliases = [ "@no" ];
-    #     };
-    #     "google".metaData.hidden = true;
-    #     "wikipedia".metaData.hidden = true;
-    #   };
-    # };
   };
   programs.joplin-desktop = {
     enable = true;
@@ -265,40 +279,6 @@
     package = pkgs.thunderbird;
     profiles.default = {
       isDefault = true;
-      # settings = {
-      # };
-      # search = {
-      #   enable = true;
-      #   force = true;
-      #   default = "ddg";
-      #   order = [
-      #     "ddg"
-      #     "perplexity"
-      #     "nix-packages"
-      #     "nix-options"
-      #   ];
-      #   privateDefault = "ddg";
-      #   engines = {
-      #     "perplexity" = {
-      #       name = "Perplexity";
-      #       urls = [
-      #         {
-      #           template = "https://www.perplexity.ai/";
-      #           params = [
-      #             {
-      #               name = "q";
-      #               value = "{searchTerms}";
-      #             }
-      #           ];
-      #         }
-      #       ];
-      #       icon = "https://www.perplexity.ai/favicon.ico";
-      #       definedAliases = [ "@pp" ];
-      #     };
-      #     "google".metaData.hidden = true;
-      #     "wikipedia".metaData.hidden = true;
-      #   };
-      # };
     };
   };
   home.shellAliases = {
