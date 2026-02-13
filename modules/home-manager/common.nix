@@ -288,7 +288,7 @@
     '';
     nix-apply-user = ''
       nix --extra-experimental-features 'nix-command flakes' \
-         run "path:.#homeConfigurations.ponfertato@$(hostname).activationPackage"
+        run "path:.#homeConfigurations.$(whoami).activationPackage"
     '';
     nix-gc = "nix-collect-garbage --delete-older-than 3d && nix store optimise";
     nix-search = "nix search nixpkgs";
@@ -296,5 +296,7 @@
     nix-edit = ''
       cd "$NIXCFG_PATH" && ${pkgs.git}/bin/git status
     '';
+    nix-build-system = "nix build --impure --no-link .#nixosConfigurations.$(hostname).config.system.build.toplevel";
+    nix-rollback = "sudo nixos-rebuild switch --rollback";
   };
 }
