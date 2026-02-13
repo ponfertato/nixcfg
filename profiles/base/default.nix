@@ -59,7 +59,7 @@
         "https://nix-gaming.cachix.org/?priority=50"
         "https://nixos.snix.store/?priority=100"
       ];
-      
+
       trusted-public-keys = [
         "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
@@ -74,7 +74,10 @@
   };
 
   boot.loader = {
-    systemd-boot.configurationLimit = 5;
-    # grub.configurationLimit = 5;
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      configurationLimit = 5;
+      enable = true;
+    };
   };
 }
