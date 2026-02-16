@@ -296,7 +296,7 @@
     '';
     nix-apply-user = ''
       nix --extra-experimental-features 'nix-command flakes' \
-        run "path:.#homeConfigurations.$(whoami).activationPackage"
+        run "path:.#homeConfigurations.$(whoami)@$(hostname).activationPackage"
     '';
     nix-gc = "nix-collect-garbage --delete-older-than 3d && nix store optimise";
     nix-search = "nix search nixpkgs";
