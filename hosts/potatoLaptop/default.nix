@@ -13,8 +13,6 @@
     "amdgpu.dc=1"
     "amdgpu.dpm=1"
     "amdgpu.gpu_recovery=1"
-    "amdgpu.mcbp=1"
-    "amdgpu.ppfeaturemask=0xffffffff"
     "amdgpu.runpm=1"
     "loglevel=3"
     "quiet"
@@ -22,7 +20,6 @@
   ];
 
   boot.kernel.sysctl = {
-    "dev.amdgpu.ppfeaturemask" = "0xffffffff";
     "kernel.perf_event_paranoid" = 1;
     "vm.dirty_background_ratio" = 5;
     "vm.dirty_ratio" = 15;
