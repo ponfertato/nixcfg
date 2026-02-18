@@ -29,8 +29,7 @@
 
   hardware.cpu.amd.updateMicrocode = true;
   services.displayManager.autoLogin = {
-    enable = true;
-    user = "ponfertato";
+    enable = false;
   };
 
   programs = {

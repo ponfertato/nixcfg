@@ -31,4 +31,7 @@
   };
 
   hardware.cpu.intel.updateMicrocode = true;
+  services.displayManager.autoLogin = {
+    enable = false;
+  };
 }
