@@ -290,21 +290,15 @@
     };
   };
   home.shellAliases = {
-    nix-update-inputs = "nix flake update --flake path:.";
-    nix-apply-system = ''
-      sudo nixos-rebuild switch --flake "path:.#$(hostname)" --impure
+    nix-build = "nix build --impure --no-link .#nixosConfigurations.$(hostname).config.system.build.toplevel";
+    nix-gc = "sudo nix-collect-garbage --delete-older-than 3d && sudo nix store optimise";
+    nix-hm = "nix run .#homeConfigurations.$(whoami)@$(hostname).activationPackage";
+    nix-roll = "sudo nixos-rebuild switch --rollback";
+    nix-switch = "sudo nixos-rebuild switch --flake .#$(hostname) --impure";
+    nix-sync = ''
+      nix flake update > /dev/null && \
+      sudo nixos-rebuild switch --flake .#$(hostname) --impure && \
+      nix run .#homeConfigurations.$(whoami)@$(hostname).activationPackage
     '';
-    nix-apply-user = ''
-      nix --extra-experimental-features 'nix-command flakes' \
-        run "path:.#homeConfigurations.$(whoami)@$(hostname).activationPackage"
-    '';
-    nix-gc = "nix-collect-garbage --delete-older-than 3d && nix store optimise";
-    nix-search = "nix search nixpkgs";
-    nix-search-unstable = "nix search nixpkgs-unstable";
-    nix-edit = ''
-      cd "$NIXCFG_PATH" && ${pkgs.git}/bin/git status
-    '';
-    nix-build-system = "nix build --impure --no-link .#nixosConfigurations.$(hostname).config.system.build.toplevel";
-    nix-rollback = "sudo nixos-rebuild switch --rollback";
   };
 }
