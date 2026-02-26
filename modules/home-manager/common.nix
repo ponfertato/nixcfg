@@ -290,15 +290,15 @@
     };
   };
   home.shellAliases = {
+    nix-apply = ''
+      sudo nixos-rebuild switch --flake .#$(hostname) --impure && \
+      nix run .#homeConfigurations.$(whoami)@$(hostname).activationPackage
+    '';
     nix-build = "nix build --impure --no-link .#nixosConfigurations.$(hostname).config.system.build.toplevel";
     nix-gc = "sudo nix-collect-garbage --delete-older-than 3d && sudo nix store optimise";
     nix-hm = "nix run .#homeConfigurations.$(whoami)@$(hostname).activationPackage";
     nix-roll = "sudo nixos-rebuild switch --rollback";
     nix-switch = "sudo nixos-rebuild switch --flake .#$(hostname) --impure";
-    nix-sync = ''
-      nix flake update > /dev/null && \
-      sudo nixos-rebuild switch --flake .#$(hostname) --impure && \
-      nix run .#homeConfigurations.$(whoami)@$(hostname).activationPackage
-    '';
+    nix-update = "nix flake update";
   };
 }
