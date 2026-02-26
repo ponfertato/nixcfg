@@ -8,6 +8,7 @@
   home.packages =
     (with pkgs; [
       android-tools
+      appimage-run
       audacity
       corefonts
       gimp
@@ -24,6 +25,7 @@
       nextcloud-client
       nextcloud-talk-desktop
       telegram-desktop
+      v2rayn
       vscodium
     ]);
 }
