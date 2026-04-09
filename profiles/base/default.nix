@@ -52,6 +52,7 @@
         "flakes"
       ];
       substituters = [
+        "https://mirror.yandex.ru/nixos/?priority=5"
         "https://cache.nixos.org/?priority=10"
         "https://nixos-cache-proxy.cofob.dev/?priority=20"
         "https://chaotic-nyx.cachix.org/?priority=30"
