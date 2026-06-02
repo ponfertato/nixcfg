@@ -67,8 +67,12 @@
   boot.kernel.sysctl = {
     "fs.suid_dumpable" = 0;
     "kernel.core_uses_pid" = 1;
-    "kernel.sysrq" = 0;
+    "kernel.dmesg_restrict" = 1;
+    "kernel.kptr_restrict" = 2;
+    "kernel.sysrq" = 176;
+    "kernel.yama.ptrace_scope" = 1;
     "net.core.default_qdisc" = "fq";
+    "net.core.netdev_max_backlog" = 65535;
     "net.core.rmem_max" = 134217728;
     "net.core.somaxconn" = 65535;
     "net.core.wmem_max" = 134217728;
@@ -90,7 +94,9 @@
     "net.ipv4.tcp_congestion_control" = "bbr";
     "net.ipv4.tcp_fastopen" = 3;
     "net.ipv4.tcp_fin_timeout" = 30;
-    "net.ipv4.tcp_keepalive_time" = 1200;
+    "net.ipv4.tcp_keepalive_intvl" = 60;
+    "net.ipv4.tcp_keepalive_probes" = 5;
+    "net.ipv4.tcp_keepalive_time" = 600;
     "net.ipv4.tcp_low_latency" = 1;
     "net.ipv4.tcp_max_syn_backlog" = 65535;
     "net.ipv4.tcp_mtu_probing" = 1;

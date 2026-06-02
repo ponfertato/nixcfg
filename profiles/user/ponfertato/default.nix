@@ -12,18 +12,14 @@
     description = "ponfertato";
     extraGroups = [
       "adbusers"
-      "audio"
       "cups"
       "docker"
-      "flatpak"
       "gamemode"
-      "input"
+      "kvm"
       "libvirt"
       "networkmanager"
       "plugdev"
       "scanner"
-      "sshd"
-      "video"
       "wheel"
     ];
   };
