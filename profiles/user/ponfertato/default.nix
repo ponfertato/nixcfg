@@ -96,6 +96,13 @@
     nix-roll = "sudo nixos-rebuild switch --rollback";
     nix-switch = "sudo nixos-rebuild switch --flake .#$(hostname) --impure";
     nix-update = "nix flake update";
+    ll = "ls -lah";
+    la = "ls -A";
+    .. = "cd ..";
+    ... = "cd ../..";
+    gs = "git status";
+    gl = "git log --oneline --graph";
+    gp = "git pull --rebase";
   };
 
   programs.kdeconnect.enable = true;
