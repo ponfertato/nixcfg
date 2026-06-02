@@ -1,133 +1,161 @@
-# <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Nix_snowflake.svg" width="50" height="50"> NixOS & Nix-on-Droid Modular Configuration
-✨ **A modular Nix configuration with Flakes support for NixOS and Nix-on-Droid**
+# <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Nix_snowflake.svg" width="50" height="50"> NixOS Modular Configuration
+
+✨ **A modular NixOS configuration with Flakes support**
 ❄️ _Snowflake-inspired infrastructure for your systems_
+
 ---
+
 ## 🚀 Quick Start
+
 ### Requirements
-- **For NixOS:** NixOS 25.05 (Warbler) or newer, Flakes enabled in `/etc/nixos/configuration.nix`:
+
+- **NixOS 26.05 (Warbler)** or newer
+- **Flakes enabled** in `/etc/nixos/configuration.nix`:
   ```nix
   { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
   ```
-- **For Nix-on-Droid:** Android device with Nix-on-Droid installed from F-Droid.
+
 ### Initial Setup on NixOS
+
 ```bash
 # Generate hardware configuration
 sudo rm -rf /etc/nixos/*; sudo nixos-generate-config
+
 # Build and activate configuration
 sudo nixos-rebuild switch --flake .#$(hostname) --impure
 ```
-### Initial Setup on Nix-on-Droid (e.g., potatoPhone)
-```bash
-# Clone the repository
-nix run nixpkgs#git -- clone https://codeberg.org/ponfertato/nixcfg ~/.config/nixpkgs
-# Build and activate configuration for your device
-nix-on-droid switch --flake ~/.config/nixpkgs#potatoPhone
-```
+
 ---
+
 ## 📂 Structure
+
 ```text
 nixcfg/
-├── flake.nix                 # ❄️ Flakes entry point for NixOS and Nix-on-Droid
-├── profiles/                 # 🧩 Modular system profiles (base, desktop, users, etc.)
-│   ├── base/                 # 🖥️ Core system settings, Nix settings
-│   ├── common/               # 👤 User configurations (groups, packages)
-│   ├── desktop/              # 🖥️ Base GUI environment (KDE Plasma, X, audio, printing)
-│   ├── laptop/               # 💻 Laptop-specific settings (Bluetooth, fingerprint)
-│   ├── mobile/               # 📱 Common settings for Nix-on-Droid devices (packages, locale)
-│   ├── networking/           # 🌐 Network and firewall settings
-│   └── workstation/          # 💻 Workstation-specific settings (Wake-on-LAN)
-├── hosts/                    # 🖥️ Host-specific configs (hostname, kernel params, user packages)
-│   ├── potatoLaptop/         # 💻 Configuration for potatoLaptop
-│   │   └── default.nix       # ⚙️ Host settings (hostname, kernelParams, packages)
-│   ├── potatoWork/           # 💻 Configuration for potatoWork
-│   │   └── default.nix       # ⚙️ Host settings (hostname, kernelParams, packages)
-│   ├── potatoPhone/          # 📱 Configuration for potatoPhone (Nix-on-Droid)
-│   │   └── default.nix       # ⚙️ Host settings (hostname, packages)
-│   └── potatoTablet/         # 📱 Configuration for potatoTablet (Nix-on-Droid)
-│       └── default.nix       # ⚙️ Host settings (hostname, packages)
-└── modules/                  # 🧩 Reusable NixOS modules (Docker, Waydroid, Flatpak, Ollama, Home Manager)
-    ├── docker.nix            # 🐳 Docker configuration module
-    ├── flatpak.nix           # 📦 Flatpak configuration module
-    ├── ollama.nix            # 🤖 Ollama service configuration module
-    ├── waydroid.nix          # 🤖 Waydroid configuration module
-    └── home-manager/         # 👤 Home Manager user environment
-        ├── common.nix        # 🏠 Core settings (bash, git, firefox, aliases)
-        ├── packages.nix      # 📦 User packages (apps, tools)
-        ├── potatoLaptop.nix  # 💻 Configuration for potatoLaptop (host-specific packages)
-        └── potatoWork.nix    # 💻 Configuration for potatoWork (host-specific packages)
+├── flake.nix                          # ❄️ Flakes entry point + unstable overlay
+├── profiles/                          # 🧩 Modular system profiles
+│   ├── core/                          # 🖥️ Base system: locale, kernel, nix, network, firewall
+│   └── user/                          # 👤 User roles (multi-user ready)
+│       └── ponfertato/                # 👤 Current user profile
+│           ├── default.nix            #    Account, packages, git, aliases, services
+│           ├── firefox/               # 🦊 Firefox configuration
+│           │   ├── policies.nix       #    🛡️ Enterprise policies (tracking, search)
+│           │   └── preferences.nix    #    ⚙️ about:config tweaks
+│           └── thunderbird/           # 📨 Thunderbird configuration
+│               ├── policies.nix       #    🛡️ Enterprise policies
+│               └── preferences.nix    #    ⚙️ UI and composition
+├── hosts/                             # 🖥️ Host-specific configs (desktop + hardware + packages)
+│   ├── potatoWork/                    # 💻 Intel workstation (WoL, anydesk, mattermost)
+│   │   └── default.nix
+│   └── potatoLaptop/                  # 💻 AMD laptop (Bluetooth, Steam, heroic)
+│       └── default.nix
+└── modules/                           # 🧩 Reusable NixOS modules
+    ├── docker.nix                     # 🐳 Docker configuration
+    ├── flatpak.nix                    # 📦 Flatpak + auto Flathub setup
+    ├── ollama.nix                     # 🤖 Ollama service
+    └── waydroid.nix                   # 📱 Waydroid configuration
 ```
+
 ---
+
 ## 🔄 Maintenance
-### Full System Update (recommended)
+
+### Apply new configuration (recommended)
+
 ```bash
-nix-update-inputs && nix-apply-system && nix-apply-user
+nix-switch
 ```
-### Update Only User Environment (fast, no sudo)
+
+### Update flake inputs
+
 ```bash
-nix-apply-user
+nix-update
 ```
-### Update Only System (NixOS)
+
+### Full update workflow
+
 ```bash
-nix-apply-system
+nix-update && nix-check && nix-switch
 ```
-### Update Only Flake Inputs (dependencies)
+
+### Rollback to previous generation
+
 ```bash
-nix-update-inputs
+nix-roll
 ```
-### Manual Update (if needed)
-```bash
-# Update flake inputs (nixpkgs, hardware, etc.)
-nix flake update
-# Rebuild and activate the system (NixOS) with hardware config regeneration
-sudo nixos-generate-config && sudo nixos-rebuild switch --flake .#$(hostname) --impure
-# Rebuild and activate the system (Nix-on-Droid)
-nix-on-droid switch --flake .#<device_name>
-```
+
 ### Garbage Collection
+
 ```bash
-nix-gc
+nix-gc      # Delete old generations + optimise store
+nix-clean   # Optimise store only (keeps generations)
 ```
+
+### Validate configuration
+
+```bash
+nix-check   # Run `nix flake check` without applying
+```
+
+### Manual Update (if needed)
+
+```bash
+# Update flake inputs
+nix flake update
+# Rebuild and activate with hardware config regeneration
+sudo nixos-generate-config && sudo nixos-rebuild switch --flake .#$(hostname) --impure
+```
+
 ### Package Search
+
 ```bash
-nix-search <package>          # in stable (nixos-25.05)
-nix-search-unstable <package> # in unstable
+nix search nixpkgs <package>          # in stable (nixos-26.05)
+nix search nixpkgs-unstable <package> # in unstable
 ```
+
 ---
+
 ## ✨ Key Features
-- 🔄 **Automatic Updates**: Weekly GC and auto-upgrade (NixOS)
-- 🧩 **Modular Design**: Easy to maintain and extend via profiles and separated modules
-- 💻 **Multi-Device Support**: Share configs between NixOS and Nix-on-Droid machines
+
+- 🔄 **Automatic Updates**: Weekly GC and auto-upgrade
+- 🧩 **Modular Design**: `core` profile + per-user profile + per-host customization
+- 💻 **Multi-Host Support**: Shared user profile across `potatoWork` and `potatoLaptop`
 - 🛡️ **Reproducible Builds**: Fully declarative configuration with Flakes
-- ⚙️ **Optimized Nix Settings**: Includes custom substituters for faster builds
-- 👤 **Declarative User Environment**: Managed via Home Manager (apps, aliases, dotfiles)
+- ⚙️ **Optimized Nix Settings**: Yandex mirror + custom substituters for faster builds
+- 🔥 **Unstable Overlay**: Access `pkgs.unstable.*` without extra args
+- 🦊 **Browser Hardening**: Firefox and Thunderbird configured via enterprise policies + preferences
+- 🖥️ **Desktop Integration**: KDE Plasma 6, Wayland, Pipewire, Flatpak, Docker
+
 ---
+
 ## 🛠️ Customization
+
 ### Create New Profile
+
 1. Add `profiles/new-profile/` directory.
-2. Create `profiles/new-profile/default.nix` containing the NixOS or Nix-on-Droid module.
+2. Create `profiles/new-profile/default.nix` containing the NixOS module.
 3. Import the profile in `flake.nix` for the desired host configuration.
+
+### Create New User Role
+
+1. Add `profiles/user/<username>/` directory.
+2. Create `default.nix` with user settings (account, packages, programs).
+3. Split large configs into subfolders (e.g. `firefox/`, `thunderbird/`) and import them.
+4. Import the user profile in `hosts/<hostname>/default.nix`.
+
 ### Create New Module
+
 1. Add `modules/new-module.nix`.
 2. Import the module in `flake.nix` for the desired host configuration.
-### Hardware Configuration (NixOS only)
+
+### Create New Host
+
+1. Add `hosts/<hostname>/default.nix`.
+2. Import the desired user profile: `imports = [ ../../profiles/user/ponfertato ];`
+3. Register it in `flake.nix` under `nixosConfigurations`.
+4. Point `cpuModule` to the appropriate `nixos-hardware` module.
+
+### Hardware Configuration
+
 - Hardware-specific settings (kernel, CPU microcode, graphics drivers) are managed separately in `/etc/nixos/hardware-configuration.nix`.
 - This file is typically generated by `nixos-generate-config` and can be manually edited or supplemented with `nixos-hardware` modules if needed.
-- The configuration is included in `flake.nix` to ensure reproducibility and compatibility with `nixos-rebuild`.
-### Manage User Environment
-- Core settings (bash, git, firefox, aliases) are defined in:
-  ```
-  modules/home-manager/common.nix
-  ```
-- User packages are defined in:
-  ```
-  modules/home-manager/packages.nix
-  ```
-- Host-specific packages are defined in:
-  ```
-  modules/home-manager/potatoWork.nix
-  modules/home-manager/potatoLaptop.nix
-  ```
-- After changes, apply with:
-  ```bash
-  nix-apply-user
-  ```
+- The configuration is included in `flake.nix` via `--impure` to allow per-machine regeneration.
