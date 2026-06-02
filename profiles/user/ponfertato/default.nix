@@ -98,8 +98,8 @@
     nix-update = "nix flake update";
     ll = "ls -lah";
     la = "ls -A";
-    .. = "cd ..";
-    ... = "cd ../..";
+    ".." = "cd ..";
+    "..." = "cd ../..";
     gs = "git status";
     gl = "git log --oneline --graph";
     gp = "git pull --rebase";
