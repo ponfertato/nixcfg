@@ -80,8 +80,8 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      mesa.drivers
       libvdpau-va-gl
+      mesa
     ];
   };
 
