@@ -90,9 +90,6 @@
 
   environment.systemPackages = with pkgs; [
     anydesk
-    exfat
-    exfatprogs
-    kdePackages.partitionmanager
     unstable.mattermost-desktop
     unstable.rustdesk-flutter
   ];
