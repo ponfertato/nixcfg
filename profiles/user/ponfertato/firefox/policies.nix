@@ -1,14 +1,34 @@
 {
   programs.firefox.policies = {
     AIControls = {
-      Default = "available";
-      LinkPreviewKeyPoints = "blocked";
-      Locked = true;
-      PDFAltText = "blocked";
-      SidebarChatbot = "available";
-      SmartTabGroups = "blocked";
-      SmartWindow = "blocked";
-      Translations = "available";
+      Default = {
+        Value = "available";
+        Locked = true;
+      };
+      LinkPreviewKeyPoints = {
+        Value = "blocked";
+        Locked = true;
+      };
+      PDFAltText = {
+        Value = "blocked";
+        Locked = true;
+      };
+      SidebarChatbot = {
+        Value = "available";
+        Locked = false;
+      };
+      SmartTabGroups = {
+        Value = "blocked";
+        Locked = true;
+      };
+      SmartWindow = {
+        Value = "blocked";
+        Locked = true;
+      };
+      Translations = {
+        Value = "available";
+        Locked = false;
+      };
     };
 
     AutofillAddressEnabled = false;
