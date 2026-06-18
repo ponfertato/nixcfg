@@ -5,6 +5,7 @@
     dejavu_fonts
     freefont_ttf
     liberation_ttf
+    nerd-fonts.fira-code
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
