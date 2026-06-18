@@ -37,11 +37,13 @@
     android-tools
     appimage-run
     audacity
-    corefonts
     curl
+    exfat
+    exfatprogs
     gimp
     git
     kdePackages.kate
+    kdePackages.partitionmanager
     kdePackages.tokodon
     krita
     lazygit

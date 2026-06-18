@@ -98,9 +98,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    exfat
-    exfatprogs
-    kdePackages.partitionmanager
     unstable.heroic
     unstable.prismlauncher
     unstable.protonup-qt

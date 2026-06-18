@@ -43,6 +43,7 @@
             (./hosts + "/${hostName}/default.nix")
             ./modules/docker.nix
             ./modules/flatpak.nix
+            ./modules/fonts.nix
             cpuModule
             /etc/nixos/configuration.nix
             /etc/nixos/hardware-configuration.nix
