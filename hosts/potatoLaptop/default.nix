@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [ ../../profiles/user/ponfertato ];
+  imports = [
+    ../../modules/vr.nix
+    ../../profiles/user/ponfertato
+  ];
 
   boot.supportedFilesystems = [
     "ntfs"
