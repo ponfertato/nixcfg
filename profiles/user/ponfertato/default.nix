@@ -114,6 +114,9 @@
       "en-US"
       "ru"
     ];
+    nativeMessagingHosts.packages = [
+      pkgs.kdePackages.plasma-browser-integration
+    ];
   };
 
   programs.neovim = {
