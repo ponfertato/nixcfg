@@ -39,6 +39,7 @@
     curl
     exfat
     exfatprogs
+    fastfetch
     gimp
     git
     git-credential-oauth
