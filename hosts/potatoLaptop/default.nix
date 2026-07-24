@@ -12,8 +12,7 @@
 
   boot.kernelParams = [
     "amd_pstate=active"
-    "amdgpu.gpu_recovery=1"
-    "amdgpu.runpm=1"
+    "mem_sleep_default=deep"
     "loglevel=3"
     "nowatchdog"
     "quiet"
@@ -21,11 +20,7 @@
   ];
 
   boot.kernel.sysctl = {
-    "kernel.perf_event_paranoid" = 1;
-    "vm.dirty_background_ratio" = 5;
-    "vm.dirty_ratio" = 30;
-    "vm.swappiness" = 1;
-    "vm.vfs_cache_pressure" = 10;
+    "vm.swappiness" = 10;
   };
 
   environment.sessionVariables = {

@@ -8,10 +8,6 @@
   ];
 
   boot.kernelParams = [
-    "i915.enable_fbc=1"
-    "i915.enable_guc=1"
-    "i915.perf_stream_paranoid=0"
-    "intel_pstate=active"
     "loglevel=3"
     "nowatchdog"
     "quiet"
@@ -20,10 +16,6 @@
   ];
 
   boot.kernel.sysctl = {
-    "dev.i915.perf_stream_paranoid" = 0;
-    "kernel.perf_event_paranoid" = 1;
-    "vm.dirty_background_bytes" = 67108864;
-    "vm.dirty_bytes" = 134217728;
     "vm.swappiness" = 10;
     "vm.vfs_cache_pressure" = 50;
   };
