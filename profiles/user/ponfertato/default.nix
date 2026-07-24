@@ -14,6 +14,7 @@
       "cups"
       "docker"
       "gamemode"
+      "input"
       "kvm"
       "libvirt"
       "networkmanager"
