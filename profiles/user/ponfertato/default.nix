@@ -138,7 +138,7 @@
     la = "ls -A";
     ll = "ls -lah";
     nix-check = "nix flake check";
-    nix-gc = "sudo nix-collect-garbage -d && sudo nix store optimise";
+    nix-gc = "nix-collect-garbage -d && sudo nix-collect-garbage -d && sudo nix-store --optimise";
     nix-roll = "sudo nixos-rebuild switch --rollback";
     nix-switch = "sudo nixos-rebuild switch --flake .#$(hostname) --impure";
     nix-update = "nix flake update";
