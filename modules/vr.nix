@@ -11,7 +11,7 @@
     config = {
       enable = true;
       json = {
-        application = [ pkgs.wayvr ];
+        application = [ pkgs.unstable.wayvr ];
       };
     };
     highPriority = true;
@@ -20,6 +20,7 @@
       XDG_SESSION_TYPE = "wayland";
       QT_QPA_PLATFORM = "wayland";
     };
+    package = pkgs.unstable.wivrn;
     openFirewall = true;
     steam = {
       enable = true;
@@ -28,8 +29,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    opencomposite
-    sidequest
-    wayvr
+    unstable.sidequest
+    unstable.wayvr
   ];
 }
