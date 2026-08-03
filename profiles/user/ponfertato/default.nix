@@ -60,6 +60,7 @@
     unstable.lazygit
     unstable.nextcloud-client
     unstable.nextcloud-talk-desktop
+    unstable.scrcpy
     unstable.telegram-desktop
     unstable.v2rayn
     unstable.vscodium
