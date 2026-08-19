@@ -35,7 +35,6 @@
 
   environment.systemPackages = with pkgs; [
     android-tools
-    appimage-run
     audacity
     curl
     exfat
@@ -65,6 +64,11 @@
     unstable.v2rayn
     unstable.vscodium
   ];
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 
   programs.git = {
     enable = true;
