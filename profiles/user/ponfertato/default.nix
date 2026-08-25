@@ -61,9 +61,13 @@
     unstable.nextcloud-talk-desktop
     unstable.scrcpy
     unstable.telegram-desktop
-    unstable.v2rayn
     unstable.vscodium
   ];
+
+  programs.amnezia-vpn = {
+    enable = true;
+    package = pkgs.unstable.amnezia-vpn;
+  };
 
   programs.appimage = {
     enable = true;
