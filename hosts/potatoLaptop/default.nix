@@ -93,6 +93,9 @@
     enable = true;
     dedicatedServer.openFirewall = true;
     remotePlay.openFirewall = true;
+    extraPackages = with pkgs; [
+      unstable.steamvr-linux-fixes
+    ];
   };
 
   environment.systemPackages = with pkgs; [
