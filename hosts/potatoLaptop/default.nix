@@ -102,5 +102,6 @@
     unstable.heroic
     unstable.prismlauncher
     unstable.protonup-qt
+    unstable.sunvox
   ];
 }
