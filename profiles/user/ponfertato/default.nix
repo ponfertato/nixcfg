@@ -44,6 +44,7 @@
     git
     git-credential-oauth
     krita
+    libepoxy
     libreoffice
     qbittorrent
     remmina
