@@ -37,7 +37,6 @@
     android-tools
     audacity
     curl
-    exfat
     exfatprogs
     fastfetch
     gimp
@@ -47,7 +46,6 @@
     libreoffice
     qbittorrent
     remmina
-    thunderbird
     vlc
     wget
     kdePackages.kate
@@ -70,7 +68,9 @@
     binfmt = true;
     package = pkgs.appimage-run.override {
       extraPkgs = pkgs: [
+        pkgs.bzip2
         pkgs.libepoxy
+        pkgs.libjpeg8
       ];
     };
   };
@@ -92,6 +92,7 @@
       core = {
         autocrlf = "input";
         editor = "nvim";
+        excludesFile = "/etc/gitignore_global";
         whitespace = "trailing-space,space-before-tab";
       };
       credential = {
@@ -147,8 +148,8 @@
     gs = "git st";
     la = "ls -A";
     ll = "ls -lah";
-    nix-check = "nix flake check";
-    nix-gc = "nix-collect-garbage -d && sudo nix-collect-garbage -d && sudo nix-store --optimise";
+    nix-check = "nix flake check --impure";
+    nix-gc = "sudo nix-collect-garbage --delete-older-than 7d && sudo nix store gc && sudo nix store optimise";
     nix-roll = "sudo nixos-rebuild switch --rollback";
     nix-switch = "sudo nixos-rebuild switch --flake .#$(hostname) --impure";
     nix-update = "nix flake update";

@@ -2,6 +2,7 @@
   description = "Ponfertato NixOS configuration with modular structure";
 
   inputs = {
+    hardware.inputs.nixpkgs.follows = "nixpkgs";
     hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";

@@ -1,4 +1,16 @@
 { pkgs, ... }:
+let
+  nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: with p; [
+    tree-sitter-bash
+    tree-sitter-comment
+    tree-sitter-dockerfile
+    tree-sitter-json
+    tree-sitter-lua
+    tree-sitter-markdown
+    tree-sitter-nix
+    tree-sitter-yaml
+  ]);
+in
 {
   environment.systemPackages = with pkgs; [
     bash-language-server
@@ -36,7 +48,7 @@
       nvim-cmp
       nvim-lspconfig
       nvim-tree-lua
-      nvim-treesitter.withAllGrammars
+      nvim-treesitter
       nvim-web-devicons
       plenary-nvim
       telescope-nvim
