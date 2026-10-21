@@ -66,13 +66,6 @@
   programs.appimage = {
     enable = true;
     binfmt = true;
-    package = pkgs.appimage-run.override {
-      extraPkgs = pkgs: [
-        pkgs.bzip2
-        pkgs.libepoxy
-        pkgs.libjpeg8
-      ];
-    };
   };
 
   programs.git = {
