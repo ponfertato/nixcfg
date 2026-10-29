@@ -82,6 +82,7 @@
 
   environment.systemPackages = with pkgs; [
     anydesk
+    unstable.dbeaver-bin
     unstable.mattermost-desktop
     unstable.rustdesk-flutter
   ];
